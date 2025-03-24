@@ -1,0 +1,49 @@
+% defining the patameters;
+    N=10;
+    n=0:N-1;
+    K=2;
+    1=N-k;
+    % for the discrete cosine;
+    cos_k= cos(2*pi*k*n/N);
+    cos_1=cos(2*pi*1*n*n/N);
+ %plotting the signal;
+    subplot(2,1,1);
+    stem(n,cos_k,"b", "filled");
+    tittle(["cosine:1=",num2str(1)]);
+    x axis("n");
+    y axis("Amplitude");
+    grid on;
+
+% for the discrete exponential,
+     exp_k=exp(1j*2*pi*k*N/N);
+     epp_1= exp(1j*2*pi*1*n/N);
+
+% plottig the real part pf the exponential signal,
+     subplot(2,1,1);
+     stem(n,real(exp_k), "b","filled");
+     title("exponential(real):k= "
+     X axis("n");
+     y axis("amplitude");
+     grid on;
+
+     subplot(2,1,2);
+     stem(n,real(exp_1),"r","filled");
+     tittle (["Exponential(real):1="' num2str(1)]);
+     x axis("n")
+     y axis("amplitude"):
+     grid on;
+
+     %PLotting theimaginary part of the function:
+     subplot(2, 1, 1); 
+stem(n, imag(exp_k), 'b', 'filled'); 
+title(['Exponential (Imag): k = ', num2str(k)]);
+xlabel('n');
+ylabel('Amplitude'); 
+grid on;
+
+subplot(2, 1, 2); 
+stem(n, imag(exp_l), 'r', 'filled'); 
+title(['Exponential (Imag): l = ', num2str(l)]);
+xlabel('n'); 
+ylabel('Amplitude');
+grid on;
