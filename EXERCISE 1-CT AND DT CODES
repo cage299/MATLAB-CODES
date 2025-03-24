@@ -1,0 +1,92 @@
+CT CODES
+
+%signum function
+clc;
+    clear;
+    close all;
+    t=-5: 0 .01:5;
+    sgn_t=sin(t);
+    plot(t,sign(t), "linewidth", 1.5);
+    tittle("sign function")
+    x axis ("t")
+    y axis("sign(t)")
+    grid on;
+
+%rectangular function
+clc ;
+clear;
+close all;
+t = -1:0.01;1;
+rect_t = rectplus(t,1);
+plot (t,rect_t , "linewidth" ,1.5);
+tittle("rectangular function");
+x axis ("time");
+y axis ("rect (t));
+grid on;
+
+%triangular function
+    t= -1:0.01:1;
+    tri_t=tripuls(t,1);
+    plot(t,tri_t, "linewidth" , 1.5);
+    tittle("triangular function");
+    x axis ("time (t));
+    y axis("tri(t)");
+    grid on;
+    
+%sinc function
+    t=-5:0.01:5;
+    sinc_t = sinc(t/pi)
+    plot(t, sinc_t, "linewidth",1.5);
+    x axis("time(t)");
+    y axis ("sinc(t)");
+    grid on;
+
+DT CODES
+
+%delta function
+n=-10:10;
+    delta_n= (n==0);
+    stem(n,delta_n, 'filled' ,'linewidth',1.5);
+    tittle('impulse function');
+    x axis ('n');
+    y axis ('\delta [n]');
+    grid on;
+
+%step function 
+    u_n=(n>=0);
+    stem(n, u_n,"filled","linewidth",1.5);
+    tittle("step function");
+    x axis("n");
+    y axis ('u[n]');
+    grid on;
+    
+%square impulse function
+    t=0:0.01:1;
+    sq_wave=square(2*pi*5*t);
+    plot(t, sq_wave,"linewidth",1.5);
+    tittle("squae wave");
+    x axis("time(S)");
+    y axis("Amplitude");
+    grid on;
+%discrete exponential function
+
+A=1;
+    alpha= -0.1;
+    exp_n= A*exp(alpha*n);
+    stem(n,exp_n,"filled","linewidth",1.5);
+    tittle("exponential function");
+    x axis("apha");
+    y axis("exp_n");
+    grid on;
+
+%cosine function
+    % defining the parameters ;
+    a=1;
+    omega=pi/4;
+    phi = 0;
+    %creating a cosine sequence;
+    cos_n =a *cos(omega*n+phi);
+
+    stem(n,cos_n,"filled", "linewidth" , 1.5);
+    x axis("n");
+    y axis("a\cdot\cos(\omega n +\phi)");
