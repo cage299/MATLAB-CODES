@@ -1,0 +1,30 @@
+t = 0:0.01:5;
+    x1 = sin(2*pi*t); 
+    x2 = cos(2*pi*t);
+    y1_ct = x1 + circshift(x1, 100);
+    y2_ct = x2 + circshift(x2, 100);
+    y3_ct = (x1 + x2) + circshift(x1 + x2, 100);
+    is_linear_ct = isequal(y1_ct + y2_ct, y3_ct);
+    %for Linearity and Time-Invariance (DT)
+     n = 0:50;
+     x1_dt = sin(2*pi*n/10);
+      x2_dt = cos(2*pi*n/10);
+     %defining a system;      
+     y1_dt = x1_dt + circshift(x1_dt, 1); % Shift by 1 sample
+     y2_dt = x2_dt + circshift(x2_dt, 1);
+     y3_dt = (x1_dt + x2_dt) + circshift(x1_dt + x2_dt, 1);
+     %checking for linearlity
+     is_linear_dt = isequal(y1_dt + y2_dt, y3);
+     %causality
+     is_causal_ct = all(t >= 0); % System is causal if t >= 0
+     is_stable_ct = sum(abs(y_ct_causal).^2) < inf;
+     
+%% Causality and Stability (DT)
+% System y[n] = sum from -∞ to n of x[k]
+y_dt_causal = cumsum(x1_dt);
+
+% Check causality
+is_causal_dt = all(n >= 0); % System is causal if n >= 0
+
+% Check stability for a finite energy condition)
+is_stable_dt = sum(abs(y_dt_causal).^2) < inf;
